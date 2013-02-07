@@ -1,0 +1,18 @@
+common: &common
+  adapter: postgresql
+  host: localhost
+
+development:
+  <<: *common
+  database: sixsecfilms_development
+  pool: 5
+
+test:
+  <<: *common
+  database: sixsecfilms_test
+  pool: 5
+
+production:
+  <<: *common
+  database: sixsecfilms_production
+  pool: 5

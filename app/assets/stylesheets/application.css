@@ -1,0 +1,10 @@
+.container {
+	width: 960px;
+	margin: auto;
+}
+	
+.divider {
+	width: 960px;
+	height: 1px;
+	background-color: blue;
+}	

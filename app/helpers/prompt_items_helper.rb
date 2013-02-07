@@ -1,0 +1,2 @@
+module PromptItemsHelper
+end

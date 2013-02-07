@@ -1,0 +1,2 @@
+module PromptCategoriesHelper
+end

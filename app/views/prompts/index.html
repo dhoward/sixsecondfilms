@@ -1,0 +1,39 @@
+<html>
+	
+
+	<body>
+		<div class="container">
+			<div class="logoHolder">
+				<img src="/logo.jpg">
+			</div>
+			
+			<div>A film festival for people without patience</div>
+			
+			<div class="divider"></div>
+			
+			<ul>
+				<li>A new festival every hour on the hour</li>
+				<li>You have one hour to make your movie, and post it with that festival’s hashtag</li>
+				<li>The films with the most likes one hour later win</li>
+			</ul>
+			
+			<div class="divider"></div>
+			
+			<div>Current Festival: <%= @prompts[0].get_tweet_text %></div>
+			
+			<div class="divider"></div>
+			
+			<div><%= @prompts[1].pretty_timestamp %> Festival: <%= @prompts[1].get_tweet_text %></div>
+			
+			<div class="divider"></div>
+			
+			<div><%= @prompts[2].pretty_timestamp %> Festival: <%= @prompts[2].get_tweet_text %></div>
+
+			<% @prompts[2].winners.each do |winner|%>
+				<div><a href="<%= winner.vine_url %>"><iframe src="<%= winner.vine_url %>/card" width="200" height="200"></iframe></a></div>
+				<div>@<%= winner.user_name %></div>
+			<% end %>
+			
+		</div>
+	</body>
+</html>

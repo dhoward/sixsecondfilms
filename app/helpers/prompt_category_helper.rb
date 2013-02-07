@@ -1,0 +1,2 @@
+module PromptCategoryHelper
+end
