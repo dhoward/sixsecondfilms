@@ -1,6 +1,36 @@
+font-family: 'Archivo Narrow', sans-serif;
+
+.container {
+	font-family: "Archivo Narrow";
+	background-color: red;
+}
+
 .container {
 	width: 960px;
+	padding: 40px 0;
+	font-size:18px;
 	margin: auto;
+	font-family: "Archivo Narrow";
+}
+
+.container .heading {
+	text-align: center;
+}
+
+.container ul {
+	margin-left: 20px;
+}
+
+.container ul li {
+	margin-top: 10px;
+}
+
+.container ul li:first-child {
+	margin-top: 0px;
+}
+
+.section {
+	padding: 20px 40px;
 }
 	
 .divider {
@@ -8,3 +38,7 @@
 	height: 1px;
 	background-color: blue;
 }	
+
+.link {
+	text-decoration: none;
+}
