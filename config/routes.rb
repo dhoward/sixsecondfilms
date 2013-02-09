@@ -1,8 +1,7 @@
 Sixsecfilms::Application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations] 
 
   resources :prompt_items
-
 
   resources :prompt_categories
 
