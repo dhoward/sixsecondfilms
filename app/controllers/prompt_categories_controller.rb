@@ -1,4 +1,7 @@
 class PromptCategoriesController < ApplicationController
+
+  before_filter :authenticate_admin!
+
   # GET /prompt_categories
   # GET /prompt_categories.json
   def index

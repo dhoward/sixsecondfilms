@@ -1,4 +1,6 @@
 Sixsecfilms::Application.routes.draw do
+  devise_for :admins
+
   resources :prompt_items
 
 

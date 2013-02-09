@@ -1,4 +1,7 @@
 class PromptItemsController < ApplicationController
+
+  before_filter :authenticate_admin!
+
   # GET /prompt_items
   # GET /prompt_items.json
   def index
