@@ -2,7 +2,11 @@ class PromptItemsController < ApplicationController
   # GET /prompt_items
   # GET /prompt_items.json
   def index
-    @prompt_items = PromptItem.all
+    @prompt_categories = PromptItem.all.group_by(&:prompt_category)
+
+    @prompt_categories.each do |category, items|
+      puts "#{category.text} -> #{items.map(&:text).join(', ')}"
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,20 +14,10 @@ class PromptItemsController < ApplicationController
     end
   end
 
-  # GET /prompt_items/1
-  # GET /prompt_items/1.json
-  def show
-    @prompt_item = PromptItem.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @prompt_item }
-    end
-  end
-
   # GET /prompt_items/new
   # GET /prompt_items/new.json
-  def new
+  def new    
+    @categories = PromptCategory.all
     @prompt_item = PromptItem.new
 
     respond_to do |format|
@@ -45,7 +39,7 @@ class PromptItemsController < ApplicationController
 
     respond_to do |format|
       if @prompt_item.save
-        format.html { redirect_to @prompt_item, notice: 'Prompt item was successfully created.' }
+        format.html { redirect_to :action => "index" }
         format.json { render json: @prompt_item, status: :created, location: @prompt_item }
       else
         format.html { render action: "new" }
@@ -61,7 +55,7 @@ class PromptItemsController < ApplicationController
 
     respond_to do |format|
       if @prompt_item.update_attributes(params[:prompt_item])
-        format.html { redirect_to @prompt_item, notice: 'Prompt item was successfully updated.' }
+        format.html { redirect_to action: "index" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

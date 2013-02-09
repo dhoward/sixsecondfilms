@@ -1,0 +1,16 @@
+= form_for(@prompt_category) do |f|
+  - if @prompt_category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@prompt_category.errors.count, 'error')} prohibited this prompt_category from being saved:"
+
+      %ul
+        - @prompt_category.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :text
+    %br
+    = f.text_field :text
+
+  .actions
+    = f.submit

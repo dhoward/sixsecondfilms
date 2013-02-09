@@ -1,0 +1,37 @@
+.container {
+  font-family: "Archivo Narrow";
+  width: 960px;
+  padding: 40px 0;
+  font-size:18px;
+  margin: auto;
+
+  .heading {
+    text-align: center;
+  }
+
+  ul {
+    margin-left: 20px;
+
+    li {
+      margin-top: 10px;
+    }
+
+    &:first-child {
+      margin-top: 0px;
+    }
+  }
+}
+
+.section {
+  padding: 20px 40px;
+}
+	
+.divider {
+  width: 960px;
+  height: 1px;
+  background-color: blue;
+}	
+
+.link {
+  text-decoration: none;
+}

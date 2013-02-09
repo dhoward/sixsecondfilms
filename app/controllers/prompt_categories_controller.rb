@@ -10,17 +10,6 @@ class PromptCategoriesController < ApplicationController
     end
   end
 
-  # GET /prompt_categories/1
-  # GET /prompt_categories/1.json
-  def show
-    @prompt_category = PromptCategory.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @prompt_category }
-    end
-  end
-
   # GET /prompt_categories/new
   # GET /prompt_categories/new.json
   def new
@@ -44,7 +33,7 @@ class PromptCategoriesController < ApplicationController
 
     respond_to do |format|
       if @prompt_category.save
-        format.html { redirect_to @prompt_category, notice: 'Prompt category was successfully created.' }
+        format.html { redirect_to :action => "index" }
         format.json { render json: @prompt_category, status: :created, location: @prompt_category }
       else
         format.html { render action: "new" }
@@ -60,7 +49,7 @@ class PromptCategoriesController < ApplicationController
 
     respond_to do |format|
       if @prompt_category.update_attributes(params[:prompt_category])
-        format.html { redirect_to @prompt_category, notice: 'Prompt category was successfully updated.' }
+        format.html { redirect_to :action => "index" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -1,0 +1,21 @@
+%h1 Prompt Items
+
+- @prompt_categories.each do |category, items|
+
+  %h2= category.text
+
+  %table
+    %tr
+      %th
+      %th
+      %th
+
+    - items.each do |prompt_item|
+      %tr
+        %td= prompt_item.text
+        %td= link_to 'Edit', edit_prompt_item_path(prompt_item)
+        %td= link_to 'Delete', prompt_item, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
+
+%div= link_to 'New Prompt item', new_prompt_item_path
