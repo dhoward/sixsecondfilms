@@ -35,7 +35,7 @@
         .section= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"
 
         - if prompt.winners.length > 0
-          %div{:style => "margin-left:72px;height: 240px;"}
+          %div{:style => "margin-left:72px;height: 240px;width:200px;"}
             - prompt.winners.each do |winner|
               .videoHolder{:style => "float:left;margin-right:72px;"}
                 %div
