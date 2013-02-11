@@ -8,14 +8,14 @@
           %li= msg
 
   .field
-    = f.label :text
-    %br
-    = f.text_field :text
+    %span{:style => "width:115px;float:left;"}
+      = f.label :prompt_category
+    = f.collection_select(:prompt_category_id, @categories, :id, :text)
 
   .field
-    = f.label :prompt_category
-    %br
-    = f.collection_select(:prompt_category_id, @categories, :id, :text)
+    %span{:style => "width:115px;float:left;"}
+      = f.label :text
+    = f.text_field :text
 
   .actions
     = f.submit
