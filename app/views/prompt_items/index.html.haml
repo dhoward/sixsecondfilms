@@ -15,9 +15,11 @@
       %th
       %th
       %th
+      %th
 
     - items.each do |prompt_item|
       %tr
         %td{:style => "width:200px;"}= prompt_item.text
+        %td{:style => "width:120px;"}= "##{prompt_item.hashtag}6sf"
         %td= link_to 'Edit', edit_prompt_item_path(prompt_item)
         %td= link_to 'Delete', prompt_item, method: :delete, data: { confirm: 'Are you sure?' }
