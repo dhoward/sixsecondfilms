@@ -17,9 +17,14 @@ class Prompt < ActiveRecord::Base
   end
 
   def determine_winners  	
+
+    logger.info "Determining winners for prompt: #{get_tweet_text}"
+
   	tweets = Tweet.where("created_at >= ?", created_at)
   	     .where(:hashtag_used => hashtag)
   	     .find(:all, :order => "retweet_count desc", :limit => 3)
+
+    logger.info "Winners: #{winners.length}"
 
   	tweets.each do |tweet|
   		tweet.winner_of = id
@@ -39,6 +44,9 @@ class Prompt < ActiveRecord::Base
     next_hashtag = "##{item.hashtag}6sf"
 
     next_prompt = Prompt.create(:prompt_category => category, :prompt_item => item, :hashtag => next_hashtag)
+    
+    logger.info "Generated new prompt: #{next_prompt.get_tweet_text}"
+
     next_prompt
   end
 

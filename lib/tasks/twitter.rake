@@ -4,6 +4,7 @@ namespace :twitter do
 
   task :create_contest => :environment do
 
+	Rails.logger.debug "Beginning new contest"
     last_prompt = Prompt.last
     new_prompt = Prompt.generate_next   
     #Twitter.update(new_prompt.get_tweet_text)        
