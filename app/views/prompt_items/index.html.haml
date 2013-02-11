@@ -1,25 +1,26 @@
-%h1 6 Second Film Prompts
+%div{:style => "width:940px;float:left;margin-left:20px;"}
+  %h1 6 Second Film Prompts
 
-%div= link_to 'New category', new_prompt_category_path
-%div= link_to 'New prompt', new_prompt_item_path
+  %div= link_to 'New category', new_prompt_category_path
+  %div= link_to 'New prompt', new_prompt_item_path
 
-- @prompt_categories.each do |category, items|
+  - @prompt_categories.each do |category, items|
 
-  %div{:style => "width:940px;float:left;margin-left:20px;"}
-    %h2{:style => "float:left;margin-right:10px;"}= category.text
-    %span{:style => "margin:28px 10px 0 0;float:left;"}= link_to 'Edit', edit_prompt_category_path(category)
-    %span{:style => "margin-top:28px;float:left;"}= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' }
+    %div{:style => "width:960px;float:left;"}
+      %h2{:style => "float:left;margin-right:10px;"}= category.text
+      %span{:style => "margin:28px 10px 0 0;float:left;"}= link_to 'Edit', edit_prompt_category_path(category)
+      %span{:style => "margin-top:28px;float:left;"}= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' }
 
-  %table
-    %tr
-      %th
-      %th
-      %th
-      %th
-
-    - items.each do |prompt_item|
+    %table
       %tr
-        %td{:style => "width:200px;"}= prompt_item.text
-        %td{:style => "width:120px;"}= "##{prompt_item.hashtag}6sf"
-        %td= link_to 'Edit', edit_prompt_item_path(prompt_item)
-        %td= link_to 'Delete', prompt_item, method: :delete, data: { confirm: 'Are you sure?' }
+        %th
+        %th
+        %th
+        %th
+
+      - items.each do |prompt_item|
+        %tr
+          %td{:style => "width:200px;"}= prompt_item.text
+          %td{:style => "width:120px;"}= "##{prompt_item.hashtag}6sf"
+          %td= link_to 'Edit', edit_prompt_item_path(prompt_item)
+          %td= link_to 'Delete', prompt_item, method: :delete, data: { confirm: 'Are you sure?' }

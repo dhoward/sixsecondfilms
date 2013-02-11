@@ -12,6 +12,10 @@ class Prompt < ActiveRecord::Base
 	 created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%l %p %-m/%-d %Z")
   end
 
+  def twitter_hashtag_url
+    "https://twitter.com/search?q=#{URI.escape(hashtag)}&src=hash"
+  end
+
   def determine_winners  	
   	tweets = Tweet.where("created_at >= ?", created_at)
   	     .where(:hashtag_used => hashtag)

@@ -1,3 +1,7 @@
+iframe {
+  border: none;
+}
+
 .container {
   font-family: "Archivo Narrow";
   width: 960px;
@@ -5,7 +9,29 @@
   font-size:18px;
   margin: auto;
 
+  .logoHolder {
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+
+    .rdg {
+      position: absolute;
+      width: 80px;
+      top: 88px;
+      left: 700px;
+    }
+  }
+
+  .top {
+    padding: 0px;
+  }
+
   .heading {
+    padding: 0px;
+    font-size: 24px;
+  }
+
+  .centered {
     text-align: center;
   }
 

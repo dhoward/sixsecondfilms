@@ -1,36 +1,47 @@
 %html
   %body>
     .container
+
+      .section.top
+        = "Current Festival: #{@current_prompt.get_tweet_text}"
+        %a{:href => "http://www.vine.co/"}
+          Play Now
+
+      .section.top
+        = "Vote Now On: #{@voting_prompt.get_tweet_text}"
+        %a{:href => @prompts[1].twitter_hashtag_url}
+          Vote Now
+
       .logoHolder
-        %img{:src => "/logo.jpg"}
+        = image_tag("logo.png", :style => "width:400px;")
+        = image_tag("rdg.png", :class => "rdg")
 
-        .section.heading A film festival for people without patience
-			
-      .divider
-			
-      %ul.section
-        %li A new festival every hour on the hour
-        %li You have one hour to make your movie, and post it with that festival’s hashtag
-        %li The films with the most likes one hour later win
+        .section.heading.centered 
+          A film festival for people without patience
+          %a{:href => "http://twitter.com/6secfilms"}
+            = image_tag("follow.jpg", :style => "width: 80px;position: relative;top: 13px;")
 
-      .divider
+        .section.heading.centered 
+          %span Make a movie with 
+          = image_tag("vine_icon.jpg", :size => "30x30", :style => "position:relative;top:8px")
+          %span . Post to
+          = image_tag("twitter_icon.jpg", :size => "30x30", :style => "position:relative;top:8px")
+          %span . Get retweets. Win.			            
 
-      .section= "Current Festival: #{@prompts[0].get_tweet_text}"
+      .section Past Winners
 
-      .divider
+      - for prompt in @prompts do
 
-      .section= "#{@prompts[1].pretty_timestamp} Festival: #{@prompts[1].get_tweet_text}"
+        .section= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"
 
-      .divider
-
-      .section= "#{@prompts[2].pretty_timestamp} Festival: #{@prompts[2].get_tweet_text}"
-
-      %div{:style => "margin-left:72px;height: 240px;"}
-        - @prompts[2].winners.each do |winner|
-          .videoHolder{:style => "float:left;margin-right:72px;"}
-            %div
-              %a{:href => winner.vine_url}
-              %iframe{:src => "#{winner.vine_url}/card", :width => "200", :height => "200"}
-            %div
-              %a.link{:href => "http://twitter.com/#{winner.user_name}"}
-                = "@#{winner.user_name}"
+        - if prompt.winners.length > 0
+          %div{:style => "margin-left:72px;height: 240px;"}
+            - prompt.winners.each do |winner|
+              .videoHolder{:style => "float:left;margin-right:72px;"}
+                %div
+                  %a{:href => winner.vine_url}
+                  %iframe{:src => "#{winner.vine_url}/card", :width => "200", :height => "200"}
+                %div= "#{winner.text}"
+                %div
+                  %a.link{:href => "http://twitter.com/#{winner.user_name}"}
+                    = "@#{winner.user_name}"
