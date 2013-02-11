@@ -32,7 +32,7 @@ class Prompt < ActiveRecord::Base
                        .offset(random_num).first
     end while !Prompt.where('created_at > ?', 1.days.ago).find_by_prompt_category_id_and_prompt_item_id(category.id, item.id).nil?    
 
-    next_hashtag = "#{item.hashtag}6sf"
+    next_hashtag = "##{item.hashtag}6sf"
 
     next_prompt = Prompt.create(:prompt_category => category, :prompt_item => item, :hashtag => next_hashtag)
     next_prompt
