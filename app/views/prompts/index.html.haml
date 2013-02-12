@@ -1,47 +1,54 @@
 %html
-  %body>
-    .container
+  %body
+
+    %header.current_festivals
 
       .section.top
-        = "Current Festival: #{@current_prompt.get_tweet_text}"
-        %a{:href => "http://www.vine.co/"}
+        .section_title Current Festival
+        .section_description= "#{@current_prompt.get_tweet_text}"
+        %a.section_action{:href => "http://www.vine.co/"}
           Play Now
 
       .section.top
-        = "Vote Now On: #{@voting_prompt.get_tweet_text}"
-        %a{:href => @prompts[1].twitter_hashtag_url}
+        .section_title Vote Now
+        .section_description= "#{@voting_prompt.get_tweet_text}"
+        %a.section_action{:href => @voting_prompt.twitter_hashtag_url}
           Vote Now
 
+    .container      
+
       .logoHolder
-        = image_tag("logo.png", :style => "width:400px;")
+        = image_tag("logo.png")
         = image_tag("rdg.png", :class => "rdg")
 
-        .section.heading.centered 
+        .section.heading.centered{:style => "padding: 10px 0;"} 
           A film festival for people without patience
-          %a{:href => "http://twitter.com/6secfilms"}
-            = image_tag("follow.jpg", :style => "width: 80px;position: relative;top: 13px;")
-
+          
         .section.heading.centered 
           %span Make a movie with 
-          = image_tag("vine_icon.jpg", :size => "30x30", :style => "position:relative;top:8px")
+          %a{:href => "http://vine.co"}
+            = image_tag("vine_icon.jpg", :size => "28x28", :style => "position:relative;top:6px")
           %span . Post to
-          = image_tag("twitter_icon.jpg", :size => "30x30", :style => "position:relative;top:8px")
+          %a{:href => "http://twitter.com/6secfilms"}
+            = image_tag("twitter_icon.png", :size => "30x30", :style => "position:relative;top:8px")
           %span . Get retweets. Win.			            
 
-      .section Past Winners
+      .past_winners Past Winners
 
       - for prompt in @prompts do
 
-        .section= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"
+        .past_festival
+          .festival_prompt= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"
 
-        - if prompt.winners.length > 0
-          %div{:style => "margin-left:72px;height: 240px;width:200px;"}
-            - prompt.winners.each do |winner|
-              .videoHolder{:style => "float:left;margin-right:72px;"}
-                %div
-                  %a{:href => winner.vine_url}
-                  %iframe{:src => "#{winner.vine_url}/card", :width => "200", :height => "200"}
-                %div= "#{winner.text}"
-                %div
-                  %a.link{:href => "http://twitter.com/#{winner.user_name}"}
-                    = "@#{winner.user_name}"
+          - if prompt.winners.length > 0
+            %div{:style => "float: left;"}
+              - prompt.winners.each do |winner|
+                .video_holder
+                  %div                    
+                    %iframe{:src => "#{winner.vine_url}/card", :width => "200", :height => "200"}
+                  .tweet_text
+                    %a{:href => winner.vine_url}  
+                      = "#{winner.text}"
+                  %div
+                    %a.link{:href => "http://twitter.com/#{winner.user_name}"}
+                      = "@#{winner.user_name}"

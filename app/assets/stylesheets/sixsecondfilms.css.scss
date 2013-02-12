@@ -1,9 +1,73 @@
+body {
+  margin: 0;
+  background-color: black;
+  font-family: "Archivo Narrow", Arial, Verdana, sans-serif;
+}
+
 iframe {
   border: none;
 }
 
+.last {
+  margin-right: 0px !important;
+}
+
+header {
+  position: fixed; 
+  z-index: 1; 
+  width:100%;
+  background-color:#2e2e2e;
+
+  .section {
+    width: 960px;
+    height: 26px;
+    margin: auto;
+    line-height: 26px;
+    color: #ccc;
+    padding: 0px;
+
+    &:first-child {
+      border: 1px solid #444;
+      border-width:0 0 1px 0;
+    }
+
+    .section_title {
+      float: left;
+      width: 140px;
+      padding: 0 10px;
+      color: black;
+      background:#9d7301;
+      background: -moz-linear-gradient(top,  #9d7301 0%, #d0a42e 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9d7301), color-stop(100%,#d0a42e));
+      background: -webkit-linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
+      background: -o-linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
+      background: -ms-linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
+      background:linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d7301', endColorstr='#d0a42e',GradientType=0 )
+    }
+
+    .section_description {
+      color: #ccc;
+      padding: 0 10px;
+      float: left;
+    }
+
+    .section_action {
+      width: 100px;
+      float: right;
+      color: #d0a42e;
+      text-decoration: none;
+      
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
 .container {
   font-family: "Archivo Narrow";
+  color: #ccc;
   width: 960px;
   padding: 40px 0;
   font-size:18px;
@@ -17,8 +81,8 @@ iframe {
     .rdg {
       position: absolute;
       width: 80px;
-      top: 88px;
-      left: 700px;
+      top: 42px;
+      left: 680px;
     }
   }
 
@@ -46,18 +110,53 @@ iframe {
       margin-top: 0px;
     }
   }
+
+  .past_winners {
+    font-size: 30px;
+    padding-top: 20px;
+  }
 }
 
-.section {
-  padding: 20px 40px;
-}
-	
-.divider {
+.past_festival {
+  float: left;
   width: 960px;
-  height: 1px;
-  background-color: blue;
-}	
+  margin: 20px 0;
+  padding:40px 0;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+  background:#0b0a0a;
+  background: -moz-linear-gradient(top,  #161616 0%, #0b0a0a 50%, #161616 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#161616), color-stop(50%,#0b0a0a), color-stop(100%,#161616));
+  background: -webkit-linear-gradient(top,  #161616 0%,#0b0a0a 50%,#161616 100%);
+  background: -o-linear-gradient(top,  #161616 0%,#0b0a0a 50%,#161616 100%);
+  background: -ms-linear-gradient(top,  #161616 0%,#0b0a0a 50%,#161616 100%);
+  background:linear-gradient(top,  #161616 0%,#0b0a0a 50%,#161616 100%);
+  -pie-background:linear-gradient(top,  #161616 0%, #0b0a0a 50%, #161616 100%);
+  behavior:url(/css/css/PIE.htc);
+  position:relative;
 
-.link {
-  text-decoration: none;
+  .festival_prompt {
+    padding: 0 90px 40px;
+    font-size: 20px;
+  }
+
+  .video_holder {
+    width: 200px;
+    float:left;
+    margin-left:90px;
+
+    .tweet_text {
+      padding: 10px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #d0a42e;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
 }
