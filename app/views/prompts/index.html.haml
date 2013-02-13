@@ -4,25 +4,19 @@
     %header.current_festivals
 
       .section.top
-        .section_title Current Festival
+        %a.section_title{:href => @voting_prompt.twitter_hashtag_url} 
+          Current Festival
         .section_description= "#{@current_prompt.get_tweet_text}"
-        %a.section_action{:href => "http://www.vine.co/"}
-          Play Now
 
       .section.top
-        .section_title Vote Now
-        .section_description= "#{@voting_prompt.get_tweet_text}"
-        %a.section_action{:href => @voting_prompt.twitter_hashtag_url}
+        %a.section_title{:href => @voting_prompt.twitter_hashtag_url} 
           Vote Now
+        .section_description= "#{@voting_prompt.get_tweet_text}"
 
     .container      
 
       .logoHolder
-        = image_tag("logo.png")
-        = image_tag("rdg.png", :class => "rdg")
-
-        .section.heading.centered{:style => "padding: 10px 0;"} 
-          A film festival for people without patience
+        = image_tag("logo.png")        
           
         .section.heading.centered 
           %span Make a movie with 
@@ -52,3 +46,5 @@
                   %div
                     %a.link{:href => "http://twitter.com/#{winner.user_name}"}
                       = "@#{winner.user_name}"
+
+    = image_tag("rdg.png", :class => "rdg_logo")
