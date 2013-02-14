@@ -10,6 +10,11 @@ iframe {
 
 a {
   text-decoration: none;
+  color: #d0a42e;
+
+  &:hover {
+    color: white;
+  }
 }
 
 .last {
@@ -172,15 +177,6 @@ header {
 
     .tweet_text {
       padding: 10px 0;
-    }
-
-    a {
-      text-decoration: none;
-      color: #d0a42e;
-
-      &:hover {
-        color: white;
-      }
-    }
+    }    
   }
 }

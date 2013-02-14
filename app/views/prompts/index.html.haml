@@ -7,11 +7,16 @@
         %a.section_title{:href => @voting_prompt.twitter_hashtag_url} 
           Current Festival
         .section_description= "#{@current_prompt.get_tweet_text}"
+        %a{:href => "#{@current_prompt.twitter_hashtag_url}"}
+          = @current_prompt.hashtag
 
       .section.top
         %a.section_title{:href => @voting_prompt.twitter_hashtag_url} 
           Vote Now
-        .section_description= "#{@voting_prompt.get_tweet_text}"
+        .section_description
+          %span= "#{@voting_prompt.get_tweet_text}"
+          %a{:href => "#{@voting_prompt.twitter_hashtag_url}"}
+            = @voting_prompt.hashtag
 
     .container      
 
@@ -35,7 +40,10 @@
 
         - if prompt.winners.length > 0
           .past_festival          
-            .festival_prompt= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"            
+            .festival_prompt
+              %span= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"            
+              %a{:href => "#{prompt.twitter_hashtag_url}"}
+                = prompt.hashtag
             %div{:style => "float: left;"}
               - prompt.winners.each do |winner|
                 .video_holder

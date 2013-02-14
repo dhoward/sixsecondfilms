@@ -5,7 +5,7 @@ class Prompt < ActiveRecord::Base
   attr_accessible :prompt_category, :prompt_item, :hashtag
 
   def get_tweet_text
-	 "#{prompt_category.text} #{prompt_item.text} \##{prompt_item.hashtag}6sf" 
+	 "#{prompt_category.text} #{prompt_item.text}" 
   end
 
   def pretty_timestamp
