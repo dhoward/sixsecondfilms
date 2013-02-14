@@ -1,5 +1,7 @@
 class PromptCategoriesController < ApplicationController
 
+  layout "admin"
+
   before_filter :authenticate_admin!
 
   # GET /prompt_categories

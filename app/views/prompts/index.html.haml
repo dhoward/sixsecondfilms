@@ -16,16 +16,18 @@
     .container      
 
       .logoHolder
-        = image_tag("logo.png")        
+        .subtitle{:style => "margin-top:40px"} Official
+        .main_title Six Second Film Festival
+        .subtitle "for people without patience"
           
-        .section.heading.centered 
-          %span Make a movie with 
-          %a{:href => "http://vine.co"}
-            = image_tag("vine_icon.jpg", :size => "28x28", :style => "position:relative;top:6px")
-          %span . Post to
-          %a{:href => "http://twitter.com/6secfilms"}
-            = image_tag("twitter_icon.png", :size => "30x30", :style => "position:relative;top:8px")
-          %span . Get retweets. Win.			            
+      .section.heading.centered 
+        %span Make a movie with 
+        %a{:href => "http://vine.co"}
+          = image_tag("vine_icon.jpg", :size => "28x28", :style => "position:relative;top:6px")
+        %span . Post to
+        %a{:href => "http://twitter.com/6secfilms"}
+          = image_tag("twitter_icon.png", :size => "30x30", :style => "position:relative;top:8px")
+        %span . Get retweets. Win.			            
 
       .past_winners Past Winners
 
