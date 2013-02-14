@@ -21,7 +21,7 @@ class TweetListener
   	Rails.logger.info("Tracking hashtags: " + tags.join(", "))
 
   	EM.run do
-		  @@tweet_stream.track(tags) do |status| 
+		@@tweet_stream.track(tags) do |status| 
 		  	hashtag_used = get_hashtag_used(status.text, tags)
 		    Rails.logger.info("Received status: #{status.text}, using hashtag #{hashtag_used}")     
 		    if status.retweeted_status
@@ -29,15 +29,15 @@ class TweetListener
 		    else
 		      Tweet.create_tweet(status, hashtag_used)
 		    end  
-		  end
-
-		  EventMachine::Timer.new(minutes * 60) do		  	
-		  	EM.stop
-		  end
 		end
 
-		ending_prompt.determine_winners
+		EventMachine::Timer.new(minutes * 60) do		  	
+		  	EM.stop
+		end
 	end
+
+	ending_prompt.determine_winners
+  end
 
 	def get_hashtag_used(tweet, tags)
 		for tag in tags

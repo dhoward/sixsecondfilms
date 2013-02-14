@@ -10,15 +10,19 @@ class Tweet < ActiveRecord::Base
       end
     end
 
-  	tweet = Tweet.find_or_initialize_by_tweet_id(tweet_info.id)
-  	tweet.update_attributes({
-  	  "tweet_id" => tweet_info.id,
-  	  "text" => tweet_info.text,
-  	  "retweet_count" => tweet_info.retweet_count,
-  	  "vine_url" => video_url,
-  	  "user_name" => tweet_info.attrs[:user][:screen_name],
-  	  "user_id" => tweet_info.attrs[:user][:id],
-  	  "hashtag_used" => hashtag
-  	})
+    if video_url != ""
+    	tweet = Tweet.find_or_initialize_by_tweet_id(tweet_info.id)
+    	tweet.update_attributes({
+    	  "tweet_id" => tweet_info.id,
+    	  "text" => tweet_info.text,
+    	  "retweet_count" => tweet_info.retweet_count,
+    	  "vine_url" => video_url,
+    	  "user_name" => tweet_info.attrs[:user][:screen_name],
+    	  "user_id" => tweet_info.attrs[:user][:id],
+    	  "hashtag_used" => hashtag
+    	})
+    else
+      Rails.logger.info "NOT A VINE"
+    end
   end
 end
