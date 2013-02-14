@@ -33,10 +33,9 @@
 
       - for prompt in @prompts do
 
-        .past_festival
-          .festival_prompt= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"
-
-          - if prompt.winners.length > 0
+        - if prompt.winners.length > 0
+          .past_festival          
+            .festival_prompt= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"            
             %div{:style => "float: left;"}
               - prompt.winners.each do |winner|
                 .video_holder
