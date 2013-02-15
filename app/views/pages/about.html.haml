@@ -23,18 +23,24 @@
       %p Welcome to the Six Second Film Festival. Here's how to play:
       %p 
         %span Go to the app store and download Vine. 
-        = image_tag("vine_icon.jpg", :style => "position:relative;top:7px;height:30px;width:30px;")
+        %a{:href => "http://www.vine.co"}
+          = image_tag("vine_icon.jpg", :style => "position:relative;top:7px;height:30px;width:30px;")
 
       %p 
         %span Every hour, 
-        = image_tag("6.png", :style => "position:relative;top:9px;")
-        %span will post a new festival subject. These subjects are available on the top line of the site, and by following @6secfilms on twitter.
+        %a{:href => "/"}
+          = image_tag("6.png", :style => "position:relative;top:9px;")
+        %span will post a new festival subject. These subjects are available on the top line of the site, and by following 
+        %a{:href => "https://twitter.com/6secfilms"}
+          @6secfilms 
+        %span on twitter.
 
       %p Your job is to make a short film using vine and post it to twitter with the hashtag of that hour's festival subject. 
 
       %p 
         %span The films with the most retweets one hour later get posted here
-        = image_tag("6.png", :style => "position:relative;top:9px;")
+        %a{:href => "/"}
+          = image_tag("6.png", :style => "position:relative;top:9px;")
         %span .
 
       %p For example, if the 3pm festival subject is "one of the characters must be a pirate" you have until 4pm to post your pirate movie with the hashtag #pirate6sf.
