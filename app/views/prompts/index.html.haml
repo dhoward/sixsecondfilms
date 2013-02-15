@@ -44,11 +44,12 @@
               %span= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"            
               %a{:href => "#{prompt.twitter_hashtag_url}"}
                 = prompt.hashtag
+            - video_margin = get_prompt_margin(prompt.winners.length)
             %div{:style => "float: left;"}
               - prompt.winners.each do |winner|
-                .video_holder
+                .video_holder{:style => "margin-left:#{video_margin}"}
                   %div                    
-                    %iframe{:src => "#{winner.vine_url}/card", :width => "200", :height => "200"}
+                    %iframe{:src => "#{winner.vine_url}/card", :width => "250", :height => "250"}
                   .tweet_text
                     %a{:href => winner.vine_url}  
                       = "#{winner.text}"
