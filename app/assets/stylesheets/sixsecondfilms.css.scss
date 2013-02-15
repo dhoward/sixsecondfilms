@@ -113,6 +113,14 @@ header {
     .subtitle {
       font-size: 15px;
     }
+
+    .about_link_holder {
+      margin-top: 12px;
+
+      .about_link {
+        font-size: 26px;
+      }
+    }
   }
 
   .top {
@@ -143,6 +151,14 @@ header {
   .past_winners {
     font-size: 30px;
     padding-top: 20px;
+  }
+}
+
+.container.static_container {
+  font-size: 24px;
+
+  p {
+    margin: 20px 0;
   }
 }
 

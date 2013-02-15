@@ -1,0 +1,49 @@
+!!!
+%html
+  %head
+    %title Six Second Film Festival</title>
+    %link{:href => 'http://fonts.googleapis.com/css?family=Archivo+Narrow', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:href => 'http://fonts.googleapis.com/css?family=Cinzel:400', :rel => 'stylesheet', :type => 'text/css'}
+
+    %meta{:content => "The film festival for people without patience", :name => "description"}
+
+    = favicon_link_tag "favicon.ico" 
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body{:style => "font-size: 18px;"}
+    .container.static_container{:style => "padding-top: 0px"}
+
+      .logoHolder{:style => "margin: 10px 280px 40px 280px;"}
+        .subtitle{:style => "margin-top:40px"} Official
+        .main_title Six Second Film Festival
+        .subtitle "for people without patience"
+
+      %p Welcome to the Six Second Film Festival. Here's how to play:
+      %p 
+        %span Go to the app store and download Vine. 
+        = image_tag("vine_icon.jpg", :style => "position:relative;top:7px;height:30px;width:30px;")
+
+      %p 
+        %span Every hour, 
+        = image_tag("6.png", :style => "position:relative;top:9px;")
+        %span will post a new festival subject. These subjects are available on the top line of the site, and by following @6secfilms on twitter.
+
+      %p Your job is to make a short film using vine and post it to twitter with the hashtag of that hour's festival subject. 
+
+      %p 
+        %span The films with the most retweets one hour later get posted here
+        = image_tag("6.png", :style => "position:relative;top:9px;")
+        %span .
+
+      %p For example, if the 3pm festival subject is "one of the characters must be a pirate" you have until 4pm to post your pirate movie with the hashtag #pirate6sf.
+
+      %p
+        = image_tag("pirate.png")
+
+      %p At 5pm, all the vine movies on twitter with the hashtag #pirate6sf will be counted and the movies with the most retweets win. 
+
+      %p Enjoy the show.
+	    
+      %p - 6SFF
