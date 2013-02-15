@@ -18,13 +18,13 @@ class Prompt < ActiveRecord::Base
 
   def determine_winners  	
 
-    logger.info "Determining winners for prompt: #{get_tweet_text}"
+    Rails.logger.info "Determining winners for prompt: #{get_tweet_text}"
 
   	tweets = Tweet.where("created_at >= ?", created_at)
   	     .where(:hashtag_used => hashtag)
   	     .find(:all, :order => "retweet_count desc", :limit => 3)
 
-    logger.info "Winners: #{winners.length}"
+    Rails.logger.info "Winners: #{winners.length}"
 
   	tweets.each do |tweet|
   		tweet.winner_of = id

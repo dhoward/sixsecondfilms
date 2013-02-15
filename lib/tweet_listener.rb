@@ -32,7 +32,7 @@ class TweetListener
 		end
 
 		EventMachine::Timer.new(minutes * 60) do		  	
-		  	EM.stop
+		  	EM.stop_event_loop
 		end
 	end
 
