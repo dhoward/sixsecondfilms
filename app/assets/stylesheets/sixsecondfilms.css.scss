@@ -112,16 +112,8 @@ header {
 
     .subtitle {
       font-size: 15px;
-    }
-
-    .about_link_holder {
-      margin-top: 12px;
-
-      .about_link {
-        font-size: 26px;
-      }
-    }
-  }
+    }    
+  }  
 
   .top {
     padding: 0px;
@@ -151,6 +143,18 @@ header {
   .past_winners {
     font-size: 30px;
     padding-top: 20px;
+  }
+}
+
+.about_link_holder {
+  font-family: Cinzel;
+  margin-top: 12px;
+  width: 960px;
+  float: left;
+  text-align: center;
+
+  .about_link {
+    font-size: 34px;
   }
 }
 
