@@ -7,7 +7,9 @@ namespace :twitter do
 	Rails.logger.debug "Beginning new contest"
     last_prompt = Prompt.last
     new_prompt = Prompt.generate_next   
-    Twitter.update(new_prompt.get_tweet_text)        
+
+    twitter_text = "#{new_prompt.get_tweet_text} #{new_prompt.hashtag} www.6secfilms.com"
+    Twitter.update(twitter_text)        
     
     old_hash = "#{last_prompt.hashtag}"  
     new_hash = "#{new_prompt.hashtag}"
