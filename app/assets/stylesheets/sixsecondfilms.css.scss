@@ -205,7 +205,24 @@ a {
   }
 
   .container {
-    width: 320px;    
+    width: 320px;   
+
+    .logoHolder {
+      width: 320px;
+      height: 128px;
+
+      .main_title {
+        font-size: 16px;
+      } 
+
+      .subtitle {
+        font-size: 12px;
+
+        &:first-child {
+          margin-top: 32px !important;
+        }
+      }    
+    }   
 
     section.top {
       width: 320px;
@@ -214,10 +231,6 @@ a {
 
       .left_column {
         width: 320px;
-
-        .logoHolder {
-          left: -40px;
-        }
 
         .heading {
           font-size: 14px;
