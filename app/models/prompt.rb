@@ -2,14 +2,14 @@ class Prompt < ActiveRecord::Base
   belongs_to :prompt_category
   belongs_to :prompt_item
   has_many :winners, :foreign_key => 'winner_of', :class_name => "Tweet", :order => 'retweet_count DESC'
-  attr_accessible :prompt_category, :prompt_item, :hashtag
+  attr_accessible :prompt_category, :prompt_item, :hashtag, :end_time, :winners_determined
 
   def get_tweet_text
 	 "#{prompt_category.text} #{prompt_item.text}" 
   end
 
   def pretty_timestamp
-	 created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%l %p %-m/%-d %Z")
+	 created_at.strftime("%-m/%-d")
   end
 
   def twitter_hashtag_url
@@ -29,7 +29,11 @@ class Prompt < ActiveRecord::Base
   	tweets.each do |tweet|
   		tweet.winner_of = id
   		tweet.save
-  	end  	     
+  	end  	    
+
+    self.winners_determined = true
+    self.save
+
   end
 
   def self.generate_next
@@ -43,7 +47,14 @@ class Prompt < ActiveRecord::Base
 
     next_hashtag = "##{item.hashtag}6sf"
 
-    next_prompt = Prompt.create(:prompt_category => category, :prompt_item => item, :hashtag => next_hashtag)
+    end_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
+                    .change({:hour => 7 , :min => 0 , :sec => 0 }) + (60*60*24 - 5*60)
+
+    next_prompt = Prompt.create(:prompt_category => category, 
+                                :prompt_item => item, 
+                                :hashtag => next_hashtag,
+                                :end_time => end_time,
+                                :winners_determined => false)
     
     logger.info "Generated new prompt: #{next_prompt.get_tweet_text}"
 

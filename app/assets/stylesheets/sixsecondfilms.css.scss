@@ -34,7 +34,7 @@ header {
   width:100%;
   background-color:#2e2e2e;
 
-  .section {
+  section {
     width: 960px;
     height: 34px;
     margin: auto;
@@ -42,11 +42,6 @@ header {
     font-size: 22px;
     color: #ccc;
     padding: 0px;
-
-    &:first-child {
-      border: 1px solid #444;
-      border-width:0 0 1px 0;
-    }
 
     .section_title {
       float: left;
@@ -69,20 +64,10 @@ header {
     }
 
     .section_description {
+      line-height: 34px;
       color: #ccc;
       padding: 0 10px;
       float: left;
-    }
-
-    .section_action {
-      width: 100px;
-      float: right;
-      color: #d0a42e;
-      text-decoration: none;
-      
-      &:hover {
-        color: #ffffff;
-      }
     }
   }
 }
@@ -91,7 +76,7 @@ header {
   font-family: "Archivo Narrow";
   color: #ccc;
   width: 960px;
-  padding: 60px 0 40px 0;
+  padding: 20px 0 40px 0;
   font-size:18px;
   margin: auto;
 
@@ -99,7 +84,7 @@ header {
     width: 400px;
     height: 160px;
     float: left;
-    margin: 50px 280px 0 280px; 
+    margin: 20px 280px 0 280px; 
     background-image: url("/assets/laurels.jpg");
     background-size: 100% 100%;
     position: relative;
@@ -148,13 +133,32 @@ header {
 
 .about_link_holder {
   font-family: Cinzel;
-  margin-top: 12px;
-  width: 960px;
+  padding-top: 20px;
   float: left;
   text-align: center;
 
   .about_link {
-    font-size: 34px;
+    margin-top: 10px;
+    border: 3px solid gold;
+    opacity: 0.7;
+    color: black;
+    padding: 4px 20px;
+    font-weight: bold;
+    font-size: 38px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    background:#0b0a0a;
+    background: -moz-linear-gradient(top,  goldenrod 0%, gold 50%, goldenrod 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,goldenrod), color-stop(50%,gold), color-stop(100%,goldenrod));
+    background: -webkit-linear-gradient(top,  goldenrod 0%,gold 50%,goldenrod 100%);
+    background: -o-linear-gradient(top,  goldenrod 0%,gold 50%,goldenrod 100%);
+    background: -ms-linear-gradient(top,  goldenrod 0%,gold 50%,goldenrod 100%);
+    background:linear-gradient(top,  goldenrod 0%,gold 50%,goldenrod 100%);
+    
+    &:hover {
+      opacity:1;
+    }    
   }
 }
 
@@ -181,8 +185,6 @@ header {
   background: -o-linear-gradient(top,  #161616 0%,#0b0a0a 50%,#161616 100%);
   background: -ms-linear-gradient(top,  #161616 0%,#0b0a0a 50%,#161616 100%);
   background:linear-gradient(top,  #161616 0%,#0b0a0a 50%,#161616 100%);
-  -pie-background:linear-gradient(top,  #161616 0%, #0b0a0a 50%, #161616 100%);
-  behavior:url(/css/css/PIE.htc);
   position:relative;
 
   .festival_prompt {

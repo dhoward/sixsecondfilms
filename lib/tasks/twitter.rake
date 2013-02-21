@@ -13,7 +13,7 @@ namespace :twitter do
     
     old_hash = "#{last_prompt.hashtag}"  
     new_hash = "#{new_prompt.hashtag}"
-    TweetListener.instance.delay.track_hashtags(55, last_prompt, old_hash, new_hash)
+    TweetListener.instance.delay.track_hashtags((23*60)+55, last_prompt, old_hash, new_hash)
 
   end
   
