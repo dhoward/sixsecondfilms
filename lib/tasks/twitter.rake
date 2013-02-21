@@ -2,18 +2,22 @@ require 'open-uri'
 
 namespace :twitter do
 
-  task :create_contest => :environment do
+  task :run_contest => :environment do
 
-	Rails.logger.debug "Beginning new contest"
-    last_prompt = Prompt.last
-    new_prompt = Prompt.generate_next   
+		prompt = Prompt.last || Prompt.generate_next
 
-    twitter_text = "#{new_prompt.get_tweet_text} #{new_prompt.hashtag} www.6secfilms.com"
-    Twitter.update(twitter_text)        
-    
-    old_hash = "#{last_prompt.hashtag}"  
-    new_hash = "#{new_prompt.hashtag}"
-    TweetListener.instance.delay.track_hashtags((23*60)+55, last_prompt, old_hash, new_hash)
+		if(prompt.is_over?)
+			if(prompt.winners_determined != true)
+				prompt.determine_winners
+			end
+
+			prompt = Prompt.generate_next
+
+		else
+			Rails.logger.debug "Continuing old contest"
+		end
+		
+		TweetListener.instance.track_hashtags(prompt)
 
   end
   

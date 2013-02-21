@@ -51,4 +51,8 @@ Sixsecfilms::Application.configure do
     config.auth_method        = :oauth
   end
 
+  config.after_initialize do
+    config.contest_time = 120
+  end
+
 end

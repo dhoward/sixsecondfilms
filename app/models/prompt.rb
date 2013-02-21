@@ -36,7 +36,13 @@ class Prompt < ActiveRecord::Base
 
   end
 
+  def is_over?
+      end_time.in_time_zone("Pacific Time (US & Canada)") < Time.now.in_time_zone("Pacific Time (US & Canada)")
+  end
+
   def self.generate_next
+
+    Rails.logger.debug "Beginning new contest"
 
     begin      
       category = PromptCategory.offset(rand(PromptCategory.count)).first
@@ -47,16 +53,24 @@ class Prompt < ActiveRecord::Base
 
     next_hashtag = "##{item.hashtag}6sf"
 
-    end_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
-                    .change({:hour => 7 , :min => 0 , :sec => 0 }) + (60*60*24 - 5*60)
+    #tomorrow at 6:55 am PST
+    if Rails.env.production?
+      end_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
+                    .change({:hour => 7 , :min => 0 , :sec => 0 }) + Rails.configuration.contest_time                    
+    else
+      end_time = Time.now.in_time_zone("Pacific Time (US & Canada)") + Rails.configuration.contest_time 
+    end
 
     next_prompt = Prompt.create(:prompt_category => category, 
                                 :prompt_item => item, 
                                 :hashtag => next_hashtag,
                                 :end_time => end_time,
                                 :winners_determined => false)
+
+    twitter_text = "#{next_prompt.get_tweet_text} #{next_prompt.hashtag} www.6secfilms.com"
+    #Twitter.update(twitter_text)  
     
-    logger.info "Generated new prompt: #{next_prompt.get_tweet_text}"
+    Rails.logger.debug "Generated new prompt: #{next_prompt.get_tweet_text}"
 
     next_prompt
   end
