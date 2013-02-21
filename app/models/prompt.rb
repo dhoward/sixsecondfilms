@@ -68,7 +68,9 @@ class Prompt < ActiveRecord::Base
                                 :winners_determined => false)
 
     twitter_text = "#{next_prompt.get_tweet_text} #{next_prompt.hashtag} www.6secfilms.com"
-    #Twitter.update(twitter_text)  
+    if Rails.env.production?
+      Twitter.update(twitter_text)  
+    end
     
     Rails.logger.debug "Generated new prompt: #{next_prompt.get_tweet_text}"
 
