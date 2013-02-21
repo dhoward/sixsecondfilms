@@ -205,12 +205,18 @@ a {
   }
 
   .container {
-    width: 100%;
+    width: 320px;    
 
     section.top {
-      width: 400px;
+      width: 320px;
       float: none;
       margin: auto;
+
+      .left_column {
+        .logoHolder, .heading {
+          left: -40px;
+        }
+      }
 
       .right_column {
         padding-left: 10px;
@@ -224,14 +230,14 @@ a {
   }
 
   .past_festivals {
-    width: 400px;
+    width: 320px;
     margin: auto;
     float: none;
   }
 
   .past_festival {
-    width: 400px;
-    margin: auto 0;
+    width: 320px;
+    margin: auto 10px;
     padding: 20px 0;    
 
     .festival_prompt {
@@ -239,13 +245,13 @@ a {
     }
 
     .video_holder {
-      width: 350px;
+      width: 300px;
       float:left;
-      margin-left:25px !important;
+      margin-left:10px !important;
 
       iframe {
-        height: 350px !important;
-        width: 350px !important;
+        height: 300px !important;
+        width: 300px !important;
       }
 
       .tweet_text {
