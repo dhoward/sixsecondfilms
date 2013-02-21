@@ -20,36 +20,30 @@
         .main_title Six Second Film Festival
         .subtitle "for people without patience"
 
-      %p Welcome to the Six Second Film Festival. Here's how to play:
-      %p 
+      %p{:style => "padding-left:105px"} Welcome to the Six Second Film Festival. Here's how to play:
+      %p{:style => "padding-left:105px"} 
         %span Go to the app store and download Vine. 
         %a{:href => "http://www.vine.co"}
           = image_tag("vine_icon.jpg", :style => "position:relative;top:7px;height:30px;width:30px;")
 
-      %p 
-        %span Every hour, 
-        %a{:href => "/"}
-          = image_tag("6.png", :style => "position:relative;top:9px;")
-        %span will post a new festival subject. These subjects are available on the top line of the site, and by following 
-        %a{:href => "https://twitter.com/6secfilms"}
-          @6secfilms 
-        %span on twitter.
+      %div{:style => "padding-left:105px"}
+        .left_column{:style => "float:left;width:500px;"}
+          %p 
+            %span Every day at 7am PST, we'll post a new festival subject and hashtag on our website, and blast it out to our followers on Twitter 
+            %a{:href => "https://twitter.com/6secfilms"}
+              @6secfilms 
+            %span . Then you've got 24 hours to make a short film with Vine and post it to Twitter using the hashtag.
 
-      %p Your job is to make a short film using vine and post it to twitter with the hashtag of that hour's festival subject. 
+          %p 
+            %span The films with the most retweets by next day at 7 get posted
+            %a{:href => "/"}
+              here
+            %span . It's that simple.
 
-      %p 
-        %span The films with the most retweets one hour later get posted here
-        %a{:href => "/"}
-          = image_tag("6.png", :style => "position:relative;top:9px;")
-        %span .
+          %p Enjoy the show!
+          
+          %p - 6SFF
 
-      %p For example, if the 3pm festival subject is "one of the characters must be a pirate" you have until 4pm to post your pirate movie with the hashtag #pirate6sf.
-
-      %p
-        = image_tag("pirate.png")
-
-      %p At 5pm, all the vine movies on twitter with the hashtag #pirate6sf will be counted and the movies with the most retweets win. 
-
-      %p Enjoy the show.
-	    
-      %p - 6SFF
+        .right_column{:style => "float:left;width:250px;"}
+          %p
+            = image_tag("vine_example.png", :style => "width:200px;padding-left:50px")
