@@ -28,50 +28,6 @@ a {
   bottom: 0;
 }
 
-header {
-  position: fixed; 
-  z-index: 1; 
-  width:100%;
-  background-color:#2e2e2e;
-
-  section {
-    width: 960px;
-    height: 34px;
-    margin: auto;
-    line-height: 34px;
-    font-size: 22px;
-    color: #ccc;
-    padding: 0px;
-
-    .section_title {
-      float: left;
-      width: 140px;
-      padding: 0 10px;
-      color: black;
-      background:#9d7301;
-      text-decoration: none;
-      background: -moz-linear-gradient(top,  #9d7301 0%, #d0a42e 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9d7301), color-stop(100%,#d0a42e));
-      background: -webkit-linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
-      background: -o-linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
-      background: -ms-linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
-      background:linear-gradient(top,  #9d7301 0%,#d0a42e 100%);
-      filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d7301', endColorstr='#d0a42e',GradientType=0 );
-
-      &:hover {
-        color: #ffffff;
-      }
-    }
-
-    .section_description {
-      line-height: 34px;
-      color: #ccc;
-      padding: 0 10px;
-      float: left;
-    }
-  }
-}
-
 .container {
   font-family: "Archivo Narrow";
   color: #ccc;
@@ -80,11 +36,40 @@ header {
   font-size:18px;
   margin: auto;
 
+  section {
+    float:left;
+    width:960px;
+
+    &.top {
+      margin-bottom:20px;
+
+      .left_column {
+        float:left;
+        width:400px;
+
+        .heading {
+          float:left;
+          position:relative;
+          top:-10px;
+          font-size:19px;
+          padding-left:5px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      .right_column {
+        float:left;
+        padding:20px 0 0 50px;
+        width:500px;        
+      }
+    }
+  }
+
   .logoHolder {
     width: 400px;
     height: 160px;
-    float: left;
-    margin: 20px 280px 0 280px; 
+    float: left;    
     background-image: url("/assets/laurels.jpg");
     background-size: 100% 100%;
     position: relative;
@@ -132,6 +117,7 @@ header {
 }
 
 .about_link_holder {
+  height: 80px;
   font-family: Cinzel;
   padding-top: 20px;
   float: left;
@@ -168,6 +154,15 @@ header {
   p {
     margin: 20px 0;
   }
+
+  .logoHolder {
+    margin: 20px 280px 0 280px; 
+  }
+}
+
+.past_festivals {
+  width:960px;
+  float:left;
 }
 
 .past_festival {
@@ -200,5 +195,62 @@ header {
     .tweet_text {
       padding: 10px 0;
     }    
+  }
+}
+
+@media (max-width: 480px) {
+
+  .rdg_logo {
+    width: 20px;
+  }
+
+  .container {
+    width: 100%;
+
+    section.top {
+      width: 400px;
+      float: none;
+      margin: auto;
+
+      .right_column {
+        padding-left: 10px;
+        width: 100%;
+      }
+
+      .about_link_holder {
+        width: 100%;
+      }
+    }
+  }
+
+  .past_festivals {
+    width: 400px;
+    margin: auto;
+    float: none;
+  }
+
+  .past_festival {
+    width: 400px;
+    margin: auto 0;
+    padding: 20px 0;    
+
+    .festival_prompt {
+      padding: 0 20px 20px;
+    }
+
+    .video_holder {
+      width: 350px;
+      float:left;
+      margin-left:25px !important;
+
+      iframe {
+        height: 350px !important;
+        width: 350px !important;
+      }
+
+      .tweet_text {
+        padding: 10px 0;
+      }    
+    }
   }
 }
