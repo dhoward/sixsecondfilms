@@ -21,7 +21,7 @@ namespace :twitter do
 			Rails.logger.debug "Continuing old contest"
 		end
 		
-		TweetListener.instance.track_hashtags(prompt)
+		TweetListener.instance.delay.track_hashtags(prompt)
 
   end
   
