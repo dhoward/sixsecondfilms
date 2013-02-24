@@ -10,20 +10,20 @@ class TweetListener
 
   	tag = prompt.hashtag
   	
-  	Rails.logger.debug("Tracking hashtag: " + tag)
+  	Rails.logger.info("Tracking hashtag: " + tag)
 
 		tweet_stream = TweetStream::Client.new
 	  	tweet_stream.on_limit do |skip_count|
-		  Rails.logger.debug "TweetStream RateLimitError: #{skip_count}"
+		  Rails.logger.info "TweetStream RateLimitError: #{skip_count}"
 		end
 
 		tweet_stream.on_error do |error|
-			Rails.logger.debug "TweetStream Error: #{error}"
+			Rails.logger.info "TweetStream Error: #{error}"
 		end
 
   	EM.run do
 			tweet_stream.track(tag) do |status| 
-		    Rails.logger.debug("Received status: #{status.text}, using hashtag #{tag}")     
+		    Rails.logger.info("Received status: #{status.text}, using hashtag #{tag}")     
 		    if status.retweeted_status
 		      Tweet.create_tweet(status.retweeted_status, tag)
 		    else

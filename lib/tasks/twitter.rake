@@ -18,7 +18,7 @@ namespace :twitter do
 			prompt = Prompt.generate_next
 
 		else
-			Rails.logger.debug "Continuing old contest"
+			Rails.logger.info "Continuing old contest"
 		end
 		
 		TweetListener.instance.delay.track_hashtags(prompt)

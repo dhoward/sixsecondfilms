@@ -75,7 +75,7 @@ class Prompt < ActiveRecord::Base
 
   def self.generate_next
 
-    Rails.logger.debug "Beginning new contest"
+    Rails.logger.info "Beginning new contest"
 
     begin      
       category = PromptCategory.offset(rand(PromptCategory.count)).first
@@ -106,7 +106,7 @@ class Prompt < ActiveRecord::Base
       Twitter.update(twitter_text)  
     end
     
-    Rails.logger.debug "Generated new prompt: #{next_prompt.get_tweet_text}"
+    Rails.logger.info "Generated new prompt: #{next_prompt.get_tweet_text}"
 
     next_prompt
   end
