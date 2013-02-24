@@ -11,6 +11,10 @@ namespace :twitter do
 				prompt.determine_winners
 			end
 
+			if(prompt.winners_tweeted != true)
+				prompt.tweet_winners
+			end
+
 			prompt = Prompt.generate_next
 
 		else

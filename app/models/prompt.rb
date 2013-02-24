@@ -16,6 +16,39 @@ class Prompt < ActiveRecord::Base
     "https://twitter.com/search?q=#{URI.escape(hashtag)}&src=hash"
   end
 
+  def stringify_winners(names)
+    names_string = ""
+    case names.length
+    when 1 
+      names_string = "#{names[0]}, winner"
+    when 2
+      names_string = "#{names[0]} and #{names[1]}, winners"
+    when 3
+      names_string = "#{names[0]}, #{names[1]}, and #{names[2]}, winners"
+    end
+    names_string
+  end
+
+  def tweet_winners
+    if(self.winners.length > 0)
+      names = self.winners.map {
+        |w| "@#{w.user_name}"
+      }
+
+      names_string = stringify_winners(names.uniq)
+
+      tweet_text = "Congrats to #{names_string} of yesterday's 6SF. Check out their work at 6secfilms.com"
+      if Rails.env.production?
+        Twitter.update(tweet_text)
+      else
+        puts("Would have tweeted: #{tweet_text}")
+      end
+
+      self.winners_tweeted = true
+      self.save
+    end
+  end
+
   def determine_winners  	
 
     Rails.logger.info "Determining winners for prompt: #{get_tweet_text}"
@@ -65,7 +98,8 @@ class Prompt < ActiveRecord::Base
                                 :prompt_item => item, 
                                 :hashtag => next_hashtag,
                                 :end_time => end_time,
-                                :winners_determined => false)
+                                :winners_determined => false,
+                                :winners_tweeted => false)
 
     twitter_text = "#{next_prompt.get_tweet_text} #{next_prompt.hashtag} www.6secfilms.com"
     if Rails.env.production?

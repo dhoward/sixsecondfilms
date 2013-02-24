@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221070351) do
+ActiveRecord::Schema.define(:version => 20130224213911) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130221070351) do
     t.string   "hashtag"
     t.datetime "end_time"
     t.boolean  "winners_determined"
+    t.boolean  "winners_tweeted"
   end
 
   add_index "prompts", ["prompt_category_id"], :name => "index_tweets_on_prompt_category_id"
