@@ -1,60 +1,144 @@
 %html
   %body
 
-    %header.current_festivals        
+    %header.current_festivals
 
-    .container      
+    .container
 
       %section.top
         .left_column
           .logoHolder
             .subtitle{:style => "margin-top:40px"} Official
             .main_title Six Second Film Festival
-            .subtitle "for people without patience"   
+            .subtitle "for people without patience"
 
           %section.heading
-            %span Make a movie with 
+            %span Make a movie with
             %a{:href => "http://vine.co"}
               = image_tag("vine_icon.jpg", :size => "28x28", :style => "position:relative;top:6px")
             %span . Post to
             %a{:href => "http://twitter.com/6secfilms"}
               = image_tag("twitter_icon.png", :size => "30x30", :style => "position:relative;top:8px")
-            %span . Get retweets. Win.         
-         
-        .right_column       
+            %span . Get retweets. Win.
+
+        .right_column
 
           .section.heading{:style => "font-family:Cinzel"}
-            %a.section_title{:href => "http://www.vine.co", :style => "font-size:32px;float:left;height:28px;line-height:28px;margin-right:6px;"} 
+            %a.section_title{:href => "http://www.vine.co", :style => "font-size:32px;float:left;height:28px;line-height:28px;margin-right:6px;"}
               Today's Festival:
-            %span.section_description{:style => "line-height:28px;"}= "#{@current_prompt.get_tweet_text}"
-            %a.section_description{:href => "#{@current_prompt.twitter_hashtag_url}"}
-              = @current_prompt.hashtag
+            %span.section_description{:style => "line-height:28px;"}= "There has to be a sweet jump"
+            %a.section_description{:href => "https://twitter.com/search?q=jump6sf"} #jumps6f
 
           .about_link_holder
-            = link_to "Enter Now", page_path("about"), :class => "about_link"        
+            = link_to "Enter Now", page_path("about"), :class => "about_link"
 
       .past_festivals
         .past_winners Past Winners
 
-        - for prompt in @prompts do
+        .past_festival
+          .festival_prompt
+            %span= "2/21 Festival: There must be at least one toaster"
+            %a{:href => "https://twitter.com/search?q=toaster6sf"} #toaster6sf
+          %div{:style => "float: left;"}
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/hIA7TarquQq/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/hIA7TarquQq"}
+                  = "Toaster strudel JEN #batdad #toaster6sf"
+              %div
+                %a.link{:href => "http://twitter.com/batdad"}
+                  = "@BatDad"
 
-          - if prompt.winners.length > 0
-            .past_festival          
-              .festival_prompt
-                %span= "#{prompt.pretty_timestamp} Festival: #{prompt.get_tweet_text}"            
-                %a{:href => "#{prompt.twitter_hashtag_url}"}
-                  = prompt.hashtag
-              - video_margin = get_prompt_margin(prompt.winners.length)
-              %div{:style => "float: left;"}
-                - prompt.winners.each do |winner|
-                  .video_holder{:style => "margin-left:#{video_margin}"}
-                    %div                    
-                      %iframe{:src => "#{winner.vine_url}/card", :width => "250", :height => "250"}
-                    .tweet_text
-                      %a{:href => winner.vine_url}  
-                        = "#{winner.text}"
-                    %div
-                      %a.link{:href => "http://twitter.com/#{winner.user_name}"}
-                        = "@#{winner.user_name}"
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/M1IXm0jlbPg/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/M1IXm0jlbPg"}
+                  = "When the toaster pops unexpectedly you be like... #toaster6sf"
+              %div
+                %a.link{:href => "http://twitter.com/grant.austin"}
+                  = "@Grant.Austin"
+
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/MehYebiz3jJ/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/MehYebiz3jJ"}
+                  = "My old Windows XP Toaster / Grill #stopmotion #toaster6sf"
+              %div
+                %a.link{:href => "http://twitter.com/mark.allen"}
+                  = "@Mark.Allen"
+
+        .past_festival
+          .festival_prompt
+            %span= "2/20 Festival: The scene must take place in a diner"
+            %a{:href => "https://twitter.com/search?q=fish6sf"} #diner6sf
+          %div{:style => "float: left;"}
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/hwptTQnhL1I/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/hwptTQnhL1I"}
+                  = "LNPP even #zombies get mad when they don't get what they order at The Walking Dead Diner! #diner6sf"
+              %div
+                %a.link{:href => "http://twitter.com/stever"}
+                  = "@SteveR"
+
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/b9xQlzedYXq/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/b9xQlzedYXq"}
+                  = "At Mel's diner! #diner6sf"
+              %div
+                %a.link{:href => "http://twitter.com/behtany.mary.leadley"}
+                  = "@Bethany.Mary.Leadley"
+
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/blmJrYMOZKl/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/blmJrYMOZKl"}
+                  = "Dynamite diner. #what #diner6sf"
+              %div
+                %a.link{:href => "http://twitter.com/the.palmer.squares"}
+                  = "@ThePalmerSquares"
+
+        .past_festival
+          .festival_prompt
+            %span= "2/19 Festival: There must arm wrestling"
+            %a{:href => "https://twitter.com/search?q=armwrestle6sf"} #armwrestle6sf
+          %div{:style => "float: left;"}
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/hlOXdKU2XA9/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/hlOXdKU2XA9"}
+                  = "Wouldn't want to arm wrestle her... #armwrestle6sf"
+              %div
+                %a.link{:href => "http://twitter.com/dominicdemeo"}
+                  = "@DominicDeMeo"
+
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/hIldWd1eJgV/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/hIldWd1eJgV"}
+                  = "#armwrestle6sf"
+              %div
+                %a.link{:href => "http://twitter.com/rick"}
+                  = "@Rick"
+
+            .video_holder{:style => "margin-left:52px"}
+              %div
+                %iframe{:src => "https://vine.co/v/blH7wHO6Jiq/card", :width => "250", :height => "250"}
+              .tweet_text
+                %a{:href => "https://vine.co/v/blH7wHO6Jiq"}
+                  = "https://vine.co/v/hIldWd1eJgV #armwrestle6sf"
+              %div
+                %a.link{:href => "http://twitter.com/daryl.demanski"}
+                  = "@DarylDemanski"
+
 
       = image_tag("rdg.png", :class => "rdg_logo")
